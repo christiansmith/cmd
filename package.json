@@ -4,7 +4,7 @@
   "description": "Composable command line application library",
   "main": "lib/index.js",
   "bin": {
-    "rr": "bin/cmd.js"
+    "cmd": "bin/cmd.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
