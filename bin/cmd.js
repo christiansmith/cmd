@@ -1,52 +1,11 @@
 #!/usr/bin/env node
 
-var asArray = require('as-array')
-var minimist = require('minimist')
-var omit = require('ramda/src/omit')
-var compose = require('ramda/src/compose')
-var map = require('ramda/src/map')
+var cli = require('../')
 
-var name = require('./name')
-var use = require('./use')
-var command = require('./command')
-var flag = require('./flag')
-var cmdUtils = require('./utils')
-var getCommands = cmdUtils.getCommands;
-var getFlags = cmdUtils.getFlags;
-var applyFunctions = cmdUtils.applyFunctions;
-
-exports.name = name
-exports.use = use
-exports.command = command
-exports.flag = flag
-
-var cli = exports.cli = function cli () {
-
-  // TODO: Need to flatten and merge the contexts
-  //       for use with things like use()
-
-  var contexts = asArray(arguments)
-
-  return function (argv) {
-
-    var input = minimist(argv)
-    var data = input._
-    var flags = omit('_')(input)
-
-    var runCommands = compose(
-      map(applyFunctions(data, flags)),
-      getCommands(data)
-    )
-
-    var runFlags = compose(
-      map(applyFunctions(data, flags)),
-      getFlags(flags, contexts)
-    )
-
-    runFlags(contexts)
-    runCommands(contexts)
-  }
-}
+var name = require('cmd-name')
+var use = require('cmd-use')
+var command = require('cmd-command')
+var flag = require('cmd-flag')
 
 var f = flag(
   name('-f', '--flaggy'),

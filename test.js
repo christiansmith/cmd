@@ -1,9 +1,7 @@
-var namespace = require('tessed').namespace
+var test = require('tape')
+var cli = require('./')
 
-var test = namespace('cli')
-test.exports = test.namespace('exports')
+test('returns run function', function (t) {
 
-test('yes', function (t) {
-
-  t.equal(true, true)
+  t.end()
 })
