@@ -2,18 +2,25 @@
   "name": "cmd",
   "version": "0.0.5",
   "description": "Composable command line application library",
-  "main": "lib/index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js | tap-spec",
+    "lint": "standard"
+  },
   "bin": {
     "cmd": "bin/cmd.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "as-array": "^2.0.0",
+    "lodash": "^3.10.1",
     "minimist": "^1.2.0",
     "ramda": "^0.17.1"
+  },
+  "devDependencies": {
+    "standard": "^5.2.2",
+    "tap-spec": "^4.1.0",
+    "tessed": "^2.0.0"
   }
 }
