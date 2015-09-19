@@ -20,7 +20,7 @@ var alias = require('cmd-alias')
 var handler = require('cmd-handler')
 
 var login = command(
-  login('login', 'l'),
+  alias('login', 'l'),
   handler(function (context) {
 
     // Do some login logic
