@@ -2,6 +2,8 @@
 
 Composable command line application library
 
+**NOTE:** This library is unstable and very much in a pre-alpha state.
+
 ## Install
 
 ```
