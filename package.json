@@ -1,6 +1,6 @@
 {
   "name": "cmd",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Composable command line application library",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "lint": "standard"
   },
   "bin": {
-    "cmd": "bin/cmd.js"
+    "cmd": "spike/cmd.js"
   },
   "author": "",
   "license": "MIT",

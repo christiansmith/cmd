@@ -1,7 +1,7 @@
 var asArray = require('as-array')
 var minimist = require('minimist')
 var omit = require('ramda/src/omit')
-var compose = require('ramda/src/compose')
+var pipe = require('ramda/src/pipe')
 var map = require('ramda/src/map')
 
 var utils = require('cmd-utils')
@@ -23,14 +23,14 @@ module.exports = function cli () {
     var data = input._
     var flags = omit('_')(input)
 
-    var runCommands = compose(
-      map(applyFunctions(data, flags)),
-      getCommands(data)
+    var runCommands = pipe(
+      getCommands(data),
+      map(applyFunctions(data, flags))
     )
 
-    var runFlags = compose(
-      map(applyFunctions(data, flags)),
-      getFlags(flags, contexts)
+    var runFlags = pipe(
+      getFlags(flags, contexts),
+      map(applyFunctions(data, flags))
     )
 
     runFlags(contexts)
